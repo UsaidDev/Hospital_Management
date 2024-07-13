@@ -5,8 +5,8 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.MainPage,name='home'),
-    path('about/', views.About,name='about'),
+    path('doctors/', views.Doctor,name='doctors'),
     path('departments/', views.Department,name='departments'),
-    path('contact/', views.Contact,name='contact'),
+    path('booking/', views.Booking,name='booking'),
     path('create/',views.Create_dpt,name='create'),
 ]

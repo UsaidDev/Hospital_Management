@@ -11,6 +11,25 @@ body {
     padding: 20px;
 }
 
+.signup {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.signup h4 {
+    margin: 0;
+}
+
+.signup a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.signup a:hover {
+    text-decoration: underline;
+}
+
 h1 {
     color: #333;
     text-align: center;
@@ -51,18 +70,3 @@ h1 {
     color: #555;
 }
 
-.card-footer {
-    padding: 10px;
-    background-color: #f1f1f1;
-    border-top: 1px solid #ddd;
-}
-
-.card-footer a {
-    text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
-}
-
-.card-footer a:hover {
-    text-decoration: underline;
-}
