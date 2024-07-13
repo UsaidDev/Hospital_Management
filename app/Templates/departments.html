@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Departments</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'departments.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Departments</h1>
+        <div class="cards">
+            {% for department in departments %}
+                <div class="card">
+                    <div class="card-header">{{ department.dep_name }}</div>
+                    <div class="card-body">{{ department.dep_description }}</div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

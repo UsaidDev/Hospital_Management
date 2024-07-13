@@ -6,6 +6,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.MainPage,name='home'),
     path('about/', views.About,name='about'),
-    path('services/', views.Services,name='services'),
+    path('departments/', views.Department,name='departments'),
     path('contact/', views.Contact,name='contact'),
+    path('create/',views.Create_dpt,name='create'),
 ]
