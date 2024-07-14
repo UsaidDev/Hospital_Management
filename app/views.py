@@ -1,20 +1,18 @@
 from django.shortcuts import render,redirect
-from django.contrib.auth import authenticate, login
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login,logout
 from django.contrib.auth.models import User
 from django.contrib import messages
 from . models import Departments
 from . models import Doctors
 from .form import BookingForm
 from . models import Booking
-from django.contrib.auth.views import LoginView
-# Create your views here.
+from django.contrib.auth.decorators import login_required
 
+# Create your views here.
+@login_required(login_url='login')
 def MainPage(request):
-    context={}
-    if request.user.is_authenticated:
-        context['username']=request.user.username
-    return render(request, 'index.html',context)
+    user=request.user
+    return render(request, 'index.html',{'user':user})
 
 def Doctor(request):
     doctors=Doctors.objects.all()
@@ -43,12 +41,12 @@ def Booking(request):
             error_meg='Check datas'
     else:
         form=BookingForm()
-    
     dic_frm={
         'form':form,
         'error_message':error_meg
     }
     return render(request, 'booking.html',dic_frm)
+
 def Signup(request):
     if request.method == 'POST':
         username=request.POST.get('username')
@@ -96,11 +94,6 @@ def Login(request):
             return redirect('home')
     return render(request , 'login.html')
 
-class CustomLoginView(LoginView):
-    template_name='registration/login.html'
-    redirect_authenticated_user=True
-
-    def get_success_url(self):
-        if self.request.GET.get('next'):
-            return self.request.GET['next']
-        return '/'
+def Logout(request):
+    logout(request)
+    return redirect('home')

@@ -1,0 +1,90 @@
+.navbar-nav {
+    margin-left: auto;
+    margin-right: auto;
+}
+.icon-logo{
+    height: 30px;
+    margin-bottom: 10px;
+}
+.log-out {
+    display: flex;
+    align-items: center; 
+    padding: 10px;
+}
+
+.log-out p {
+    margin: 0;
+    margin-right: 10px;
+    font-size: 1em;
+}
+
+
+.banner-container {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    background-image: url('../images/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.banner-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333; 
+    text-align: center; 
+}
+
+.banner-caption h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.banner-caption p {
+    margin: 10px 0 0;
+    font-size: 1em;
+}
+
+
+@media (max-width: 768px) {
+    .banner-container {
+        height: 300px;
+    }
+
+    .banner-caption {
+        bottom: 10px; 
+        padding: 10px;
+    }
+
+    .banner-caption h1 {
+        font-size: 1.5em; 
+    }
+
+    .banner-caption p {
+        font-size: 0.9em; 
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-container {
+        height: 200px;
+    }
+
+    .banner-caption {
+        bottom: 5px;
+        padding: 5px; 
+    }
+
+    .banner-caption h1 {
+        font-size: 1.2em; 
+    }
+
+    .banner-caption p {
+        font-size: 0.8em;
+    }
+}
