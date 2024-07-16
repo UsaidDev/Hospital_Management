@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
         crossorigin="anonymous"></script>
     <title>Home</title>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
@@ -41,8 +43,10 @@
                 <div class="login-signup">
                     <div class="log-out">
                         <p>Hello, {{ user }}</p>
-                        <a href="{% url 'logout' %}"><div class="btn btn-success">Logout</div></a>
-                    </div>                    
+                        <a href="{% url 'logout' %}">
+                            <div class="btn btn-success">Logout</div>
+                        </a>
+                    </div>
                     {% else %}
                     <a href="{% url 'login' %}">
                         <div class="btn">Login</div>
@@ -60,13 +64,63 @@
 
     <div class="banner-container">
         <div class="banner-caption">
-            
+
             <h1>Book appointments with ease</h1>
             <p>Manage your hospital operations efficiently</p>
-            <div class="btn btn-success mt-2 text-white">View Details</div>
+            <a href="{% url 'booking' %}">
+                <div class="btn btn-success mt-2 text-white">View Details</div>
+            </a>
         </div>
     </div>
     <!--End Banner-->
+    
+    <!--Medical specialties-->
+    <div class="medical-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="title">Medical Specialties</h2>
+                    <h6 class="title text-center mb-3">Click to Learn More</h6>
+                </div>
+                {% for department in departments %}
+                <div class="col-12 col-md-6 col-lg-4 mb-4 department-card delay-{{ forloop.counter0 }}">
+                    <a href="" style="text-decoration: none;">
+                        <div class="card mx-auto" style="width: 18rem;">
+                            <img class="card-img-top" src="{{ department.dep_image.url }}" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text text-center">{{ department.dep_name }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!--Consultation Package-->
+    <div class="container">
+        <div class="consultation_package">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-6">
+                    <div class="consultaion_content">
+                        <h2>Specialist Consultation</h2>
+                        <p>Consultation package<br>
+                            from <strong>$100</strong>/session</p>
+                        <a href="{% url 'booking' %}"><button>Book now</button></a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-6">
+                    <div class="consultaion_image">
+                        <img src="../static/images/Consultation_Image.jpg" alt="" class="img-fluid rounded">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End Consultation Package-->
+
+
 </body>
 
 </html>

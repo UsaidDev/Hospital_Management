@@ -3,7 +3,8 @@ from django.db import models
 class Departments(models.Model):
     dep_name=models.CharField(max_length=100)
     dep_description=models.TextField()
-
+    dep_image=models.ImageField(upload_to='departments/')
+    
     def __str__(self):
         return self.dep_name
     
@@ -25,3 +26,4 @@ class Booking(models.Model):
 
     def __str__(self):
         return self.person_name
+

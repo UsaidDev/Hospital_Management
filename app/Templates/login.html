@@ -23,13 +23,17 @@
                 </div>
                 <button type="submit" class="btn">Login</button>
             </form>
-            {% if messages %}
             <ul>
-                {% for message in messages %}
-                <li>{{ message }}</li>
-                {% endfor %}
+                {% if messages == error %}
+                    {% for message in messages %}
+                        <li style="color: red;">{{ message }}</li>
+                    {% endfor %}
+                {% else %}
+                    {% for message in messages %}
+                        <li style="color: green;">{{ message }}</li>
+                    {% endfor %}
+                {% endif %}
             </ul>
-            {% endif %}
             <p>Don't have an account? <a href="{% url 'signup' %}">Sign up here</a></p>
         </div>
     </div>

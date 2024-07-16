@@ -11,8 +11,10 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 @login_required(login_url='login')
 def MainPage(request):
-    user=request.user
-    return render(request, 'index.html',{'user':user})
+    user = request.user
+    departments = Departments.objects.all()
+
+    return render(request, 'index.html', {'user': user, 'departments': departments})
 
 def Doctor(request):
     doctors=Doctors.objects.all()
