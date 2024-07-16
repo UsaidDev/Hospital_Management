@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth import authenticate, login,logout
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -20,9 +20,13 @@ def Doctor(request):
     doctors=Doctors.objects.all()
     return render(request, 'doctors.html',{'doctors': doctors})
 
-def Department(request):
+def Department(request):#Normal Department Print
     departments=Departments.objects.all()
     return render(request, 'departments.html',{'departments':departments})
+
+def Departments_details(request,pk):#Id used Render Page
+    department=get_object_or_404(Departments, pk=pk)
+    return render(request, 'departments.html',{'department':department})
 
 def Create_dpt(request):
     if request.method == 'POST':

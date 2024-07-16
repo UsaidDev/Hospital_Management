@@ -12,7 +12,6 @@
         crossorigin="anonymous"></script>
     <title>Home</title>
 </head>
-
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
@@ -84,7 +83,7 @@
                 </div>
                 {% for department in departments %}
                 <div class="col-12 col-md-6 col-lg-4 mb-4 department-card delay-{{ forloop.counter0 }}">
-                    <a href="" style="text-decoration: none;">
+                    <a href="{% url 'department_detail' department.id %}" style="text-decoration: none;">
                         <div class="card mx-auto" style="width: 18rem;">
                             <img class="card-img-top" src="{{ department.dep_image.url }}" alt="Card image cap">
                             <div class="card-body">
@@ -122,5 +121,4 @@
 
 
 </body>
-
 </html>

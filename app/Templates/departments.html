@@ -1,21 +1,170 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Departments</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/departments.css' %}">
+    <link rel="stylesheet" href="{% static 'css/departments.css' %}">
+    <style>
+        /* Container and Header Styling */
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        /* Back to Home Button Styling */
+        .back-to-home {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .back-to-home .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #007bff;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .back-to-home .btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /* Image Styling */
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+        }
+
+        /* Department Section Styling */
+        #department {
+            display: flex;
+            margin-bottom: 40px;
+            align-items: center;
+        }
+
+        #department .image-column,
+        #department .details-column {
+            flex: 1;
+            padding: 20px;
+        }
+
+        #department .details-column {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #department .details-column h2 {
+            color: #007bff;
+        }
+
+        #department .details-column p {
+            color: #555;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        /* Cards Container Styling */
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* Card Styling */
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: calc(33.333% - 20px);
+            min-width: 300px;
+            border: 2px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-color: #007bff;
+        }
+
+        .card-header {
+            background-color: #007bff;
+            padding: 10px;
+            font-size: 1.25em;
+            font-weight: bold;
+            text-align: center;
+            color: #fff;
+        }
+
+        .card-body {
+            padding: 20px;
+            font-size: 1em;
+            color: #555;
+            text-align: center;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .card {
+                width: calc(50% - 20px);
+            }
+
+            #department {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .card {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
+        <div class="back-to-home">
+            <a href="/" class="btn">Back to Home</a>
+        </div>
         <h1>Departments</h1>
+        {% if department %}
+        <div id="department">
+            <div class="image-column">
+                <img src="{{ department.dep_image.url }}" alt="" class="img-fluid">
+            </div>
+            <div class="details-column">
+                <h2>{{ department.dep_name }}</h2>
+                <p>{{ department.dep_description }}</p>
+            </div>
+        </div>
+        {% else %}
         <div class="cards">
             {% for department in departments %}
-                <div class="card">
-                    <div class="card-header">{{ department.dep_name }}</div>
-                    <div class="card-body">{{ department.dep_description }}</div>
-                </div>
+            <div class="card">
+                <div class="card-header">{{ department.dep_name }}</div>
+                <div class="card-body">{{ department.dep_description }}</div>
+            </div>
             {% endfor %}
         </div>
+        {% endif %}
     </div>
 </body>
 </html>
