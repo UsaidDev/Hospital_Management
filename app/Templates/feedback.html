@@ -1,7 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,112 +14,27 @@
             <span>Comments</span>
             <h1>Patients Say</h1>
         </div>
-        <!--Testimonial-->
+        <!-- Testimonials -->
         <div class="testimonial-box-container">
+            {% for patient in patientsdetial %}
             <div class="testimonial-box">
                 <div class="box-top">
                     <div class="profile">
                         <div class="profile-img">
-                            <img src="../static/images/banner.jpg" alt="">
+                            <img src="{{ patient.patients_image.url }}" alt="Patient Image">
                         </div>
                         <div class="name-user">
-                            <strong>Usaid ok</strong>
-                            <span>@usaid</span>
+                            <strong>{{ patient.patients_name }}</strong>
+                            <span>{{ patient.patients_username }}</span>
                         </div>
                     </div>
-                    <div class="reviews">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
                 </div>
-                <!--Comments-->
+                <!-- Patient's Comment -->
                 <div class="patients-comment">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id repudiandae ipsam error illum nobis
-                        quo aliquid magni omnis laborum numquam mollitia molestias dicta quisquam, magnam fugit animi
-                        dolores vero minus!</p>
+                    <p>{{ patient.patients_comments }}</p>
                 </div>
             </div>
-            <div class="testimonial-box">
-                <div class="box-top">
-                    <div class="profile">
-                        <div class="profile-img">
-                            <img src="../static/images/banner.jpg" alt="">
-                        </div>
-                        <div class="name-user">
-                            <strong>Usaid ok</strong>
-                            <span>@usaid</span>
-                        </div>
-                    </div>
-                    <div class="reviews">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                </div>
-                <!--Comments-->
-                <div class="patients-comment">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id repudiandae ipsam error illum nobis
-                        quo aliquid magni omnis laborum numquam mollitia molestias dicta quisquam, magnam fugit animi
-                        dolores vero minus!</p>
-                </div>
-            </div>
-            <div class="testimonial-box">
-                <div class="box-top">
-                    <div class="profile">
-                        <div class="profile-img">
-                            <img src="../static/images/banner.jpg" alt="">
-                        </div>
-                        <div class="name-user">
-                            <strong>Usaid ok</strong>
-                            <span>@usaid</span>
-                        </div>
-                    </div>
-                    <div class="reviews">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                </div>
-                <!--Comments-->
-                <div class="patients-comment">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id repudiandae ipsam error illum nobis
-                        quo aliquid magni omnis laborum numquam mollitia molestias dicta quisquam, magnam fugit animi
-                        dolores vero minus!</p>
-                </div>
-            </div>
-            <div class="testimonial-box">
-                <div class="box-top">
-                    <div class="profile">
-                        <div class="profile-img">
-                            <img src="../static/images/banner.jpg" alt="">
-                        </div>
-                        <div class="name-user">
-                            <strong>Usaid ok</strong>
-                            <span>@usaid</span>
-                        </div>
-                    </div>
-                    <div class="reviews">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                </div>
-                <!--Comments-->
-                <div class="patients-comment">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id repudiandae ipsam error illum nobis
-                        quo aliquid magni omnis laborum numquam mollitia molestias dicta quisquam, magnam fugit animi
-                        dolores vero minus!</p>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </section>
 </body>

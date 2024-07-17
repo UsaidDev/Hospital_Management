@@ -27,3 +27,12 @@ class Booking(models.Model):
     def __str__(self):
         return self.person_name
 
+class Feedback(models.Model):
+    patients_name=models.CharField(max_length=100)
+    patients_username=models.CharField(max_length=100)
+    patients_image=models.ImageField(upload_to='patients/')
+    patients_comments=models.TextField()
+
+    def __str__(self):
+        return self.patients_name
+

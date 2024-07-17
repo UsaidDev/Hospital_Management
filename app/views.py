@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from . models import Departments
 from . models import Doctors
+from . models import Feedback
 from .form import BookingForm
 from . models import Booking
 from django.contrib.auth.decorators import login_required
@@ -104,5 +105,6 @@ def Logout(request):
     logout(request)
     return redirect('home')
 
-def Feedback(request):
-    return render(request, 'feedback.html')
+def Feedbacklist(request):
+    Patients=Feedback.objects.all()
+    return render(request, 'feedback.html',{'patientsdetial':Patients})
