@@ -9,7 +9,7 @@ from . models import Booking
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-@login_required(login_url='login')
+
 def MainPage(request):
     user = request.user
     departments = Departments.objects.all()
